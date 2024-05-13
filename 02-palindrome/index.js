@@ -3,8 +3,8 @@
 // Do include spaces and punctuation in determining if the string is a palindrome.
 
 // Examples
-// palindrome("abba") === true;
-// palindrome("abcdefg") === false;
+// palindrome("abba") === true
+// palindrome("abcdefg") === false
 
 // Solution #1
 function palindrome(str) {
