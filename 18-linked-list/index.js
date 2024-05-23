@@ -27,6 +27,24 @@ class LinkedList {
 
     return counter;
   }
+
+  getFirst() {
+    return this.head;
+  }
+
+  getLast() {
+    if (this.head === null) {
+      return null;
+    }
+
+    let node = this.head;
+    while (node) {
+      if (node.next === null) {
+        return node;
+      }
+      node = node.next;
+    }
+  }
 }
 
 console.log("\nNode:");
@@ -38,6 +56,8 @@ console.log("\nLinked list:");
 const list = new LinkedList();
 console.log(list.head);
 console.log(list.size());
+console.log(list.getFirst());
+console.log(list.getLast());
 
 console.log("\nInsert 1:");
 list.insertFirst(1);
@@ -48,3 +68,5 @@ console.log("\nInsert 2:");
 list.insertFirst(2);
 console.log(list.head);
 console.log(list.size());
+console.log(list.getFirst());
+console.log(list.getLast());
