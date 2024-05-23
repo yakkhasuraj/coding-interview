@@ -49,6 +49,33 @@ class LinkedList {
   clear() {
     this.head = null;
   }
+
+  removeFirst() {
+    if (this.head === null) {
+      return;
+    }
+
+    this.head = this.head.next;
+  }
+
+  removeLast() {
+    if (this.head === null) {
+      return;
+    }
+
+    if (this.head.next === null) {
+      this.head = null;
+      return;
+    }
+
+    let previous = this.head;
+    let node = this.head.next;
+    while (node.next) {
+      previous = node;
+      node = node.next;
+    }
+    previous.next = null;
+  }
 }
 
 console.log("\nNode:");
@@ -79,3 +106,18 @@ console.log("\nClear list:");
 list.clear();
 console.log(list.head);
 console.log(list.size());
+
+console.log("\nRemove first node:");
+list.insertFirst(1);
+list.insertFirst(2);
+console.log(list.getFirst());
+list.removeFirst();
+console.log(list.getFirst());
+
+console.log("\nRemove last node:");
+list.clear();
+list.insertFirst(1);
+list.insertFirst(2);
+console.log(list.getLast());
+list.removeLast();
+console.log(list.getLast());
