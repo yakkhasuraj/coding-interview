@@ -45,6 +45,10 @@ class LinkedList {
       node = node.next;
     }
   }
+
+  clear() {
+    this.head = null;
+  }
 }
 
 console.log("\nNode:");
@@ -70,3 +74,8 @@ console.log(list.head);
 console.log(list.size());
 console.log(list.getFirst());
 console.log(list.getLast());
+
+console.log("\nClear list:");
+list.clear();
+console.log(list.head);
+console.log(list.size());
