@@ -76,6 +76,16 @@ class LinkedList {
     }
     previous.next = null;
   }
+
+  insertLast(data) {
+    const last = this.getLast();
+
+    if (last === null) {
+      this.head = new Node(data);
+    } else {
+      last.next = new Node(data);
+    }
+  }
 }
 
 console.log("\nNode:");
@@ -121,3 +131,15 @@ list.insertFirst(2);
 console.log(list.getLast());
 list.removeLast();
 console.log(list.getLast());
+
+console.log("\nInsert at the end of linked list:");
+list.clear();
+list.insertLast(0);
+console.log(list.head);
+
+list.clear();
+list.insertFirst(1);
+list.insertFirst(2);
+console.log(list.head);
+list.insertLast(0);
+console.log(list.head);
