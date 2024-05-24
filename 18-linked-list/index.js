@@ -102,6 +102,21 @@ class LinkedList {
 
     return null;
   }
+
+  removeAt(index) {
+    if (this.head === null) {
+      return null;
+    }
+
+    if (index === 0) {
+      this.head = this.head.next;
+      return;
+    }
+
+    const previous = this.getAt(index - 1);
+    if (previous === null) return;
+    previous.next = previous.next.next;
+  }
 }
 
 console.log("\nNode:");
@@ -167,3 +182,15 @@ list.insertFirst(1);
 list.insertFirst(2);
 list.insertFirst(3);
 console.log(list.getAt(2));
+
+console.log("\nRemove node at given index:");
+list.clear();
+list.removeAt(0);
+list.insertFirst(1);
+list.removeAt(2);
+console.log(list.head);
+list.insertFirst(2);
+list.insertFirst(3);
+console.log(list.head);
+list.removeAt(2);
+console.log(list.head);
