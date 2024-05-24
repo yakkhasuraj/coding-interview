@@ -86,6 +86,22 @@ class LinkedList {
       last.next = new Node(data);
     }
   }
+
+  getAt(index) {
+    let counter = 0;
+    let node = this.head;
+
+    while (node) {
+      if (index === counter) {
+        return node;
+      }
+
+      counter++;
+      node = node.next;
+    }
+
+    return null;
+  }
 }
 
 console.log("\nNode:");
@@ -143,3 +159,11 @@ list.insertFirst(2);
 console.log(list.head);
 list.insertLast(0);
 console.log(list.head);
+
+console.log("\nGet node at given index:");
+list.clear();
+console.log(list.getAt(0));
+list.insertFirst(1);
+list.insertFirst(2);
+list.insertFirst(3);
+console.log(list.getAt(2));
