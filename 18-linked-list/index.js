@@ -117,6 +117,22 @@ class LinkedList {
     if (previous === null) return;
     previous.next = previous.next.next;
   }
+
+  insertAt(data, index) {
+    if (this.head === null) {
+      this.head = new Node(data);
+      return;
+    }
+
+    if (index === 0) {
+      this.head = new Node(data, this.head);
+      return;
+    }
+
+    const previous = this.getAt(index - 1) || this.getLast();
+    const node = new Node(data, previous.next);
+    previous.next = node;
+  }
 }
 
 console.log("\nNode:");
@@ -193,4 +209,14 @@ list.insertFirst(2);
 list.insertFirst(3);
 console.log(list.head);
 list.removeAt(2);
+console.log(list.head);
+
+console.log("\nInsert node at given index:");
+list.clear();
+list.insertFirst(1);
+list.insertFirst(2);
+console.log(list.head);
+list.insertAt(3, 0);
+console.log(list.head);
+list.insertAt(4, 1);
 console.log(list.head);
