@@ -98,6 +98,25 @@ class LinkedList {
     const node = new Node(data, previous.next);
     previous.next = node;
   }
+
+  forEach(fn) {
+    let node = this.head;
+    let counter = 0;
+
+    while (node) {
+      fn(node, counter);
+      node = node.next;
+      counter++;
+    }
+  }
+
+  *[Symbol.iterator]() {
+    let node = this.head;
+    while (node) {
+      yield node;
+      node = node.next;
+    }
+  }
 }
 
 console.log("\nNode:");
@@ -184,4 +203,14 @@ console.log(list.head);
 list.insertAt(3, 0);
 console.log(list.head);
 list.insertAt(4, 1);
+console.log(list.head);
+
+console.log("\nFor...of loops:");
+list.clear();
+list.insertFirst(1);
+list.insertFirst(2);
+
+for (let node of list) {
+  node.data += 10;
+}
 console.log(list.head);
