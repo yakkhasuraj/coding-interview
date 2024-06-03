@@ -32,6 +32,15 @@ class Tree {
       fn(node);
     }
   }
+
+  traverseDF(fn) {
+    const arr = [this.root];
+    while (arr.length) {
+      const node = arr.shift();
+      arr.unshift(...node.children);
+      fn(node);
+    }
+  }
 }
 
 const tree = new Tree();
@@ -41,8 +50,15 @@ tree.root.add("c");
 tree.root.children[0].add("d");
 
 console.log("Breadth First Traversal:");
-const letters = [];
+let letters = [];
 tree.traverseBF((node) => {
+  letters.push(node.data);
+});
+console.log(letters);
+
+console.log("\nDepth First Traversal:");
+letters = [];
+tree.traverseDF((node) => {
   letters.push(node.data);
 });
 console.log(letters);
